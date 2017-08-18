@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title style="text-align: center">Pocket Weather</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" padding>
+  <ion-item>
+    <ion-label floating>City</ion-label>
+    <ion-input type="text" clearInput [(ngModel)]="cityName"></ion-input>
+  </ion-item>
+  <div style="margin-top: 2%;">
+    <button ion-button color="secondary" icon-right (click)="showOtherParams()" block outline>
+      Other Parameters
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+  </div>
+  <div *ngIf="isVisibleOtherParams" style="margin-top: 1%;">
+    <ion-item>
+      <ion-label fixed>Country</ion-label>
+      <ion-input type="text" clearInput [(ngModel)]="country"></ion-input>
+    </ion-item>
+  </div>
+
+  <div style="margin-top: 2%;">
+    <button ion-button color="secondary" icon-left (click)="onSearch()" outline block>
+      <ion-icon name="search"></ion-icon>
+      Search
+    </button>
+  </div>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <weather-list></weather-list>
+
+</ion-content>

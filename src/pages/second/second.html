@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title style="text-align: center">Pocket Weather</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>City</ion-label>
+    <ion-input type="text" clearInput [(ngModel)]="cityName"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Days</ion-label>
+      <ion-select [(ngModel)]="days">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+        <ion-option value="7">7</ion-option>
+        <ion-option value="8">8</ion-option>
+        <ion-option value="9">9</ion-option>
+        <ion-option value="10">10</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div style="margin-top: 1%;">
+    <button ion-button color="secondary" icon-right (click)="showOtherParams()" block outline>
+      Other Parameters
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+  </div>
+  <div *ngIf="isVisibleOtherParams" style="margin-top: 1%;">
+    <ion-item>
+      <ion-label fixed>Country</ion-label>
+      <ion-input type="text" clearInput [(ngModel)]="country"></ion-input>
+    </ion-item>
+  </div>
+
+  <div style="margin-top: 2%;">
+    <button ion-button color="secondary" icon-left (click)="onSearch()" outline block>
+      <ion-icon name="search"></ion-icon>
+      Search
+    </button>
+  </div>
+
+  <weather-list-hourly></weather-list-hourly>
+
+</ion-content>

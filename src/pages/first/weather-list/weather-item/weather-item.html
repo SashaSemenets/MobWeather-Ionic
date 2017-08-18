@@ -1,0 +1,30 @@
+<div>
+  <p style="text-align: center;">Update at: {{ weatherItem.lastUpdated }}. Pull down to refresh.</p>
+  <h4 style="text-align: left;">{{ weatherItem.cityName }}, {{ weatherItem.country }}</h4>
+</div>
+<ion-grid>
+  <ion-row>
+    <ion-col width-70>
+      <p style="font-size: 40px; margin-top: -7%;">{{ weatherItem.temperature }}°C</p>
+      <h5 style="margin-top: -17%;">{{ weatherItem.description }}</h5>
+      <p>feels: {{ weatherItem.feelsTemperature }}°C</p>
+    </ion-col>
+    <ion-col width-30 style="margin-top: -7%;">
+      <img src="../assets/icon/{{ weatherItem.icon }}" style="margin-left:25%; width: 70%;" alt="{{ weatherItem.icon }}">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-card>
+  <ion-card-header style="background-color: #32db64; color: #ffffff; font-weight: bolder">
+    Right Now
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>wind: <span>{{ weatherItem.windSpeed }} m/s, {{ weatherItem.windDeg }}°</span></ion-item>
+      <ion-item>humidity: <span>{{ weatherItem.humidity }}%</span></ion-item>
+      <ion-item>pressure: <span>{{ weatherItem.pressure }} hpa</span></ion-item>
+      <ion-item>coord: <span>[{{ weatherItem.lat }}, {{ weatherItem.lon }}]</span></ion-item>
+      <ion-item>time zone: <span>{{ weatherItem.timeZone }}</span></ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

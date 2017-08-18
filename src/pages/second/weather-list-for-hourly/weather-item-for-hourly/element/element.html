@@ -1,0 +1,30 @@
+<ion-grid>
+  <ion-list inset>
+    <ion-item>
+      <ion-row *ngFor="let hourlyDayItem of hourlyDayItems">
+        <ion-col width-35 style="margin-top: 10%;">
+          <ion-row>
+            <ion-col width-100>
+              <h5>{{ hourlyDayItem.time }}</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-100>
+              <img src="../assets/icon/{{ hourlyDayItem.condition.icon }}" style="width: 100%" alt="{{ hourlyDayItem.condition.icon }}">
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col width-65>
+          <div item-right>
+            <p><ion-badge color="secondary">{{ hourlyDayItem.temp_c }}°C</ion-badge></p>
+            <p style="font-style: italic; word-wrap: break-word;">{{ hourlyDayItem.condition.text }}</p>
+            <p>feels like: {{ hourlyDayItem.feelslike_c }}°C,</p>
+            <p>humidity: {{ hourlyDayItem.humidity }}%</p>
+            <p>pressure: {{ hourlyDayItem.pressure_mb }}hpa</p>
+            <p>wind: {{ hourlyDayItem.wind_mph }}m/s, {{ hourlyDayItem.wind_degree }}°</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-grid>

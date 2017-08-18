@@ -1,0 +1,16 @@
+<ion-card *ngFor="let dayItem of dateArr">
+  <ion-card-header style="background-color: #32db64;">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-45>
+          <h4 style="text-align: left; color: #ffffff;">{{ weatherItemHourly.cityName }}, {{ weatherItemHourly.country }}</h4>
+        </ion-col>
+        <ion-col width-55>
+          <h4 style="text-align: right; color: #ffffff;">{{ dayItem.date }}</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+  <element [item]="dayItem.hour"></element>
+</ion-card>
+
